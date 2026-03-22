@@ -1,25 +1,78 @@
+= 🔐 File Sign and Verify
+:toc:
+:toclevels: 2
 
-1. file sign and verify 🔐
+== 🔐 1. Core Problem
 
-==🔐 1️⃣ The Core Problem
+When users download software updates, we must ensure:
 
-=== When users download updates, we must ensure:
-=== File is not modified (integrity)
-=== File is from the real developer (authenticity)
+- The file is *not modified* (**integrity**)
+- The file is from the *real developer* (**authenticity**)
 
-=== Otherwise, attackers could:
+Otherwise, attackers could:
 
-=== inject malware
-=== replace updates with malicious code
+- Inject malware
+- Replace updates with malicious code
 
-== Solution:
-=== Software updates verification.
-=== Todo the update the software should be securely signed and verified from the other end.
+---
 
-== Features
+== 💡 Solution
 
-Create a RSA KEYPAIR
-Sign the file with private key
-verify using the public key
+*Software Update Verification*
 
-Authencity can be achieved.
+To securely distribute updates:
+
+- The software must be *digitally signed* by the developer
+- The receiving system must *verify the signature* before installation
+
+This ensures the update is trusted and untampered.
+
+---
+
+== ⚙️ Features
+
+- Generate an *RSA key pair*
+- Sign the file using the *private key*
+- Verify the file using the *public key*
+
+---
+
+== 🔐 Security Guarantees
+
+[cols="1,2", options="header"]
+|===
+| Feature | Purpose Achieved
+
+| RSA Digital Signature
+| Ensures authenticity and integrity
+
+| Private Key Signing
+| Only the developer can sign updates
+
+| Public Key Verification
+| Anyone can verify the authenticity
+
+| Signature Verification
+| Detects tampering or modification
+|===
+
+---
+
+== 🔁 Workflow
+
+[source,text]
+----
+File → Hash (SHA-256) → Sign with Private Key → Signature
+
+File + Signature + Public Key → Verify → Valid / Invalid
+----
+
+---
+
+== ✅ Outcome
+
+By implementing this approach:
+
+- ✔ Authenticity is ensured (trusted source)
+- ✔ Integrity is maintained (no tampering)
+- ✔ Secure software distribution is achieved

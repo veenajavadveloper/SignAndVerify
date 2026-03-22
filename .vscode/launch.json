@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "secure file sign and verify",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
+       "args": [
+        "--no-timeout",
+        "-r",
+        "ts-node/register",
+        "testSetup/test.ts"
+    ],
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

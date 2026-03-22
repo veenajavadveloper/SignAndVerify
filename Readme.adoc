@@ -1,0 +1,25 @@
+
+1. file sign and verify 🔐
+
+==🔐 1️⃣ The Core Problem
+
+=== When users download updates, we must ensure:
+=== File is not modified (integrity)
+=== File is from the real developer (authenticity)
+
+=== Otherwise, attackers could:
+
+=== inject malware
+=== replace updates with malicious code
+
+== Solution:
+=== Software updates verification.
+=== Todo the update the software should be securely signed and verified from the other end.
+
+== Features
+
+Create a RSA KEYPAIR
+Sign the file with private key
+verify using the public key
+
+Authencity can be achieved.
